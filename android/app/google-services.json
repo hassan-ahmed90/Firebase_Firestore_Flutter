@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "548817984414",
+    "project_id": "firefanta-5e7b8",
+    "storage_bucket": "firefanta-5e7b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548817984414:android:7dcfbaafcaad6b5d69948f",
+        "android_client_info": {
+          "package_name": "com.example.firebase_class"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4ry2ugcKC6QISbOMYxEGC_0GwKAaZH1Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
