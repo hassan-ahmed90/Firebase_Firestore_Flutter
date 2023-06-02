@@ -1,6 +1,8 @@
+import 'package:firebase_class/Utils/utils.dart';
 import 'package:firebase_class/ui/auth/login_screen.dart';
 import 'package:firebase_class/widget/round_button.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
@@ -9,6 +11,9 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<SignUpScreen> {
+
+  bool loading = false;
+  FirebaseAuth _auth = FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final  passwordController = TextEditingController();
@@ -74,8 +79,26 @@ class _LoginScreenState extends State<SignUpScreen> {
 
             SizedBox(height: 50,),
             RoundButton(title: "Sign In",
+              loading: loading,
               onpress: (){
+
                 if(_formKey.currentState!.validate()){
+                  setState(() {
+                    loading= true;
+                  });
+                  _auth.createUserWithEmailAndPassword(email: emailController.text.toString(),
+                      password: passwordController.text.toString()
+                  ).then((value) {
+                    setState(() {
+                      loading= false;
+                    });
+
+                  }).onError((error, stackTrace) {
+                    setState(() {
+                      loading= false;
+                    });
+                    Utils().toastMessege(error.toString());
+                  });
 
                 }
 
