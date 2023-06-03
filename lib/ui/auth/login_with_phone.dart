@@ -31,7 +31,7 @@ class _LoginPhoneState extends State<LoginPhone> {
           children: [
             SizedBox(height: 50,),
             TextFormField(
-              keyboardType: TextInputType.number,
+              // keyboardType: TextInputType.number,
               controller: phoneNoController,
               decoration: InputDecoration(
                 hintText: "+92307-3069693"
