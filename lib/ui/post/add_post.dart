@@ -42,8 +42,9 @@ class _AddPostState extends State<AddPost> {
                 setState(() {
                   loading=true;
                 });
-              databaseRef.child(DateTime.now().millisecond.toString()).set({
-              'id':DateTime.now().millisecond.toString(),
+                String id =DateTime.now().millisecond.toString();
+              databaseRef.child(id).set({
+              'id':id,
                 'name':postController.text.toString(),
               }).then((value){
                 setState(() {
@@ -60,4 +61,6 @@ class _AddPostState extends State<AddPost> {
       ),
     );
   }
+
+
 }
