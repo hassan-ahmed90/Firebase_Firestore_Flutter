@@ -81,7 +81,6 @@ class _LoginScreenState extends State<SignUpScreen> {
             RoundButton(title: "Sign In",
               loading: loading,
               onpress: (){
-
                 if(_formKey.currentState!.validate()){
                   setState(() {
                     loading= true;
@@ -89,9 +88,11 @@ class _LoginScreenState extends State<SignUpScreen> {
                   _auth.createUserWithEmailAndPassword(email: emailController.text.toString(),
                       password: passwordController.text.toString()
                   ).then((value) {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
                     setState(() {
                       loading= false;
                     });
+
 
                   }).onError((error, stackTrace) {
                     setState(() {

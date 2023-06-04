@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_class/Utils/utils.dart';
 import 'package:firebase_class/ui/auth/login_with_phone.dart';
 import 'package:firebase_class/ui/auth/signup_screen.dart';
+import 'package:firebase_class/ui/forgot_screen.dart';
 import 'package:firebase_class/ui/post/post_screen.dart';
 import 'package:firebase_class/widget/round_button.dart';
 import 'package:flutter/material.dart';
@@ -111,15 +112,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 onpress: (){
                 if(_formKey.currentState!.validate()){
                   login();
-
                 }
 
               },),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgetScreen()));
+                }, child: Text('Forget Password'),),
+              ),
               SizedBox(height: 20,),
               Row(children: [
                 Text("Don't have an account"),
                 TextButton(onPressed: (){
-
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpScreen()));
                 }, child: Text('SignUp'),)
                   ],),
